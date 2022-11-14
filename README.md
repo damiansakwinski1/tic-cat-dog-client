@@ -4,7 +4,7 @@
 
 Disclaimer: This repository contains code that is considered unfinished.
 
-+ Some parts of it may not be refactored according to the rules of clean code or the principles of effective go.
++ Some parts of it may not yet be refactored according to the rules of clean code or the principles of effective go.
 + Some parts of it may not work properly.
 
 ## Description
