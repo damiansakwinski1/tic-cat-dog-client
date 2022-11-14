@@ -4,33 +4,12 @@ import (
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/ebitenutil"
 	"golang.org/x/image/colornames"
-	"image"
 	"image/color"
 	"os"
 	"tic-cat-dog-client/src/cursor"
 	"tic-cat-dog-client/src/graphics"
 	board "tic-cat-dog-client/src/map"
 )
-
-type Image interface {
-	Size() (width, height int)
-	Clear()
-	Fill(clr color.Color)
-	DrawImage(img *ebiten.Image, options *ebiten.DrawImageOptions)
-	DrawTriangles(vertices []ebiten.Vertex, indices []uint16, img *ebiten.Image, options *ebiten.DrawTrianglesOptions)
-	DrawTrianglesShader(vertices []ebiten.Vertex, indices []uint16, shader *ebiten.Shader, options *ebiten.DrawTrianglesShaderOptions)
-	DrawRectShader(width, height int, shader *ebiten.Shader, options *ebiten.DrawRectShaderOptions)
-	SubImage(r image.Rectangle) image.Image
-	Bounds() image.Rectangle
-	ColorModel() color.Model
-	ReadPixels(pixels []byte)
-	At(x, y int) color.Color
-	RGBA64At(x, y int) color.RGBA64
-	Set(x, y int, clr color.Color)
-	Dispose()
-	WritePixels(pixels []byte)
-	ReplacePixels(pixels []byte)
-}
 
 type MouseButtonJustPressedChecker func(button ebiten.MouseButton) bool
 type GetCursorPosition func() (x int, y int)
@@ -43,12 +22,12 @@ type State struct {
 }
 
 type Drafter interface {
-	DrawRect(img Image, x float64, y float64, width float64, height float64, clr color.Color)
+	DrawRect(img graphics.Image, x float64, y float64, width float64, height float64, clr color.Color)
 }
 
 type DrafterImpl struct{}
 
-func (d *DrafterImpl) DrawRect(img Image, x float64, y float64, width float64, height float64, clr color.Color) {
+func (d *DrafterImpl) DrawRect(img graphics.Image, x float64, y float64, width float64, height float64, clr color.Color) {
 	ebitenutil.DrawRect(img.(*ebiten.Image), x, y, width, height, clr)
 }
 
@@ -89,7 +68,7 @@ TODO: Refactor so that:
  1. It is possible to mock opening an image.
  2. The method is shorter.
 */
-func (g *Game) Draw(screen Image) {
+func (g *Game) Draw(screen graphics.Image) {
 	basePath := os.Getenv("ASSETS_ABS_PATH")
 	catImg, _, err := ebitenutil.NewImageFromFile(basePath + "/cat.png")
 	dogImg, _, err := ebitenutil.NewImageFromFile(basePath + "/dog.png")
