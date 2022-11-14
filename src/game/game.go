@@ -2,7 +2,6 @@ package game
 
 import (
 	"github.com/hajimehoshi/ebiten/v2"
-	"github.com/hajimehoshi/ebiten/v2/ebitenutil"
 	"github.com/hajimehoshi/ebiten/v2/inpututil"
 	"tic-cat-dog-client/src/core"
 	board "tic-cat-dog-client/src/map"
@@ -19,6 +18,6 @@ func Init() *core.Game {
 		ScreenWidth:  ScreenWidth,
 		ScreenHeight: ScreenHeight,
 		Drafter:      &core.DrafterImpl{},
-		State:        core.State{MouseButtonJustPressed: inpututil.IsMouseButtonJustPressed, GetCursorPosition: ebiten.CursorPosition, DrawRect: ebitenutil.DrawRect},
+		State:        core.State{MouseButtonJustPressed: inpututil.IsMouseButtonJustPressed, GetCursorPosition: ebiten.CursorPosition},
 	}
 }

@@ -13,12 +13,10 @@ import (
 
 type MouseButtonJustPressedChecker func(button ebiten.MouseButton) bool
 type GetCursorPosition func() (x int, y int)
-type DrawRect func(screen *ebiten.Image, x float64, y float64, width float64, height float64, clr color.Color)
 
 type State struct {
 	MouseButtonJustPressed MouseButtonJustPressedChecker
 	GetCursorPosition      GetCursorPosition
-	DrawRect               DrawRect
 }
 
 type Drafter interface {

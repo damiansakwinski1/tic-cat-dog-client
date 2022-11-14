@@ -5,7 +5,6 @@ import (
 	"github.com/stretchr/testify/assert"
 	mock2 "github.com/stretchr/testify/mock"
 	"golang.org/x/image/colornames"
-	"image/color"
 	"testing"
 	"tic-cat-dog-client/src/core"
 	"tic-cat-dog-client/src/graphics"
@@ -18,9 +17,6 @@ func TestDraw(t *testing.T) {
 	state := core.State{
 		MouseButtonJustPressed: func(button ebiten.MouseButton) bool {
 			return false
-		},
-		DrawRect: func(screen *ebiten.Image, x float64, y float64, width float64, height float64, clr color.Color) {
-
 		},
 	}
 
