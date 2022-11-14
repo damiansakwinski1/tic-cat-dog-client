@@ -13,7 +13,7 @@ Tic-tac-toe but it's cats and dogs...
 
 ## Running (Linux)
 
-## Using Docker
+### Using Docker
 
 1. Make sure you have Docker and Make installed on your system.
 2. Make sure you're in the project's root directory.
