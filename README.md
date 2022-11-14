@@ -9,7 +9,7 @@ Disclaimer: This repository contains code that is considered unfinished.
 
 ## Description
 
-Tic-tac-toe... but it's cats and dogs.
+Tic-tac-toe... but it's cats and dogs. Network multiplayer coming in the future.
 
 ## Running (Linux)
 
