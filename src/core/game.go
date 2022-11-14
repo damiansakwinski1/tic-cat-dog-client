@@ -75,7 +75,7 @@ func (g *Game) Draw(screen graphics.Image) {
 	catImgOptions.GeoM.Scale(0.15, 0.15)
 	dogImgOptions := ebiten.DrawImageOptions{}
 	dogImgOptions.GeoM.Scale(0.15, 0.15)
-	dogImgOptions.GeoM.Translate(100, 0)
+	dogImgOptions.GeoM.Translate(120, 0)
 
 	if err != nil {
 		HandleError(err)
